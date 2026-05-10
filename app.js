@@ -1,0 +1,35 @@
+var wordToSearch;
+var buttonSearch;
+var buttonToggle;
+var textEditor;
+var textDisplayer;
+var isEditing = false;
+var searchedText = "";
+
+function editToggler(evt) {
+    isEditing = !isEditing;
+    if (isEditing == true) {
+        textEditor.style.display = "block";
+        textDisplayer.style.display = "none";
+    }
+    if (isEditing == false) {
+        textEditor.style.display = "none";
+        textDisplayer.style.display = "block";
+    }
+}
+
+function textInputOnChance(evt) {
+    let dictText = this.value;
+    console.log(dictText);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    wordToSearch = document.getElementById("word-to-search");
+    buttonSearch = document.getElementById("btn-search");
+    buttonToggle = document.getElementById("btn-togle");
+    textEditor = document.getElementById("text-editor");
+    textDisplayer = document.getElementById("text-displayer");
+    textEditor.style.display = "none";
+    textEditor.addEventListener('input', textInputOnChance);
+    buttonToggle.addEventListener("click", editToggler);
+});
