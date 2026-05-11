@@ -20,7 +20,21 @@ function editToggler(evt) {
 
 function textInputOnChance(evt) {
     let dictText = this.value;
-    console.log(dictText);
+    window.localStorage.setItem(searchedText, dictText);
+    textDisplayer.innerHTML = dictText;
+}
+
+function search(evt) {
+    searchedText = wordToSearch.value;
+    textFound = window.localStorage.getItem(searchedText);
+    if (textFound === null) {
+        textDisplayer.innerHTML = "valoare negasita";
+        textEditor.value = "";
+    }
+    if (textFound !== null) {
+        textDisplayer.innerHTML = textFound;
+        textEditor.value = textFound;
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -32,4 +46,5 @@ document.addEventListener("DOMContentLoaded", function() {
     textEditor.style.display = "none";
     textEditor.addEventListener('input', textInputOnChance);
     buttonToggle.addEventListener("click", editToggler);
+    buttonSearch.addEventListener("click", search);
 });
