@@ -1,10 +1,10 @@
-var wordToSearch;
-var buttonSearch;
-var buttonToggle;
-var textEditor;
-var textDisplayer;
-var isEditing = false;
-var searchedText = "";
+let wordToSearch;
+let buttonSearch;
+let buttonToggle;
+let textEditor;
+let textDisplayer;
+let isEditing = false;
+let searchedText = "";
 
 function editToggler(evt) {
     isEditing = !isEditing;
